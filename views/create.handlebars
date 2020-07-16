@@ -15,11 +15,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <form action="/posts/store" method="POST">
+      <form action="/posts/store" method="POST" encType="multipart/form-data">
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
-            <label>Username</label>
-            <input type="text" name="username" placeholder="Username" class="form-control">
+            <label>Author</label>
+            <input type="text" name="username" placeholder="Author" class="form-control">
           </div>
         </div>
         <div class="control-group">
@@ -38,6 +38,9 @@
           <div class="form-group floating-label-form-group controls">
             <label>Content</label>
             <textarea name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
+          </div>
+          <div class="form-group mt-3">
+            <input type="file" name="image" class="form-control-file">
           </div>
         </div>
         <div class="form-group my-4 text-center">

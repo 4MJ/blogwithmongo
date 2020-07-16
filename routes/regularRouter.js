@@ -5,7 +5,8 @@ const Post = require('../models/Post');
 
 //connecting mongoose
 mongoose.connect('mongodb://localhost:27017/node-blog', { 
-  useNewUrlParser: true 
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
     .then(() => 'You are now connected to Mongo!')
     .catch(err => console.error('Something went wrong', err));
@@ -16,6 +17,7 @@ router.get('/', async (req, res) => {
   res.render('index', {
       posts
   })
+  console.log(posts);
 });
 
 router.get('/posts/new', (req, res) => {
@@ -32,7 +34,7 @@ router.post('/posts/store', (req, res) => {
 //to get all post
 
 // //displaying a single post
-app.get('/post/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   const post = await Post.findById(req.params.id)
   res.render('post', {
       post
